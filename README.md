@@ -1,56 +1,59 @@
-# ✅ FastAPI To-Do System (Sistema de Tarefas Assíncrono)
+✅ FastAPI To-Do System (Sistema de Tarefas Assíncrono)
 
-Este projeto é um template de backend robusto e moderno, construído com **FastAPI**, focado em um sistema completo de gerenciamento de tarefas (To-Do List). Ele demonstra o uso das melhores práticas assíncronas do Python e a infraestrutura de contêineres para ambientes de desenvolvimento.
+Este projeto é um template de backend moderno, construído com FastAPI, para gerenciamento completo de tarefas (To-Do List). Ele segue as melhores práticas de desenvolvimento assíncrono em Python e utiliza contêineres Docker para simplificar o ambiente de desenvolvimento.
 
----
+✨ Destaques do Projeto
 
-## ✨ Destaques do Projeto
+Assincronicidade Completa (async/await): Todo o backend é assíncrono, desde o servidor FastAPI até o acesso ao banco de dados, garantindo alta performance e não-bloqueio do event loop.
 
-O projeto é um template de alta qualidade, ilustrando as melhores práticas em Python:
+SQLAlchemy 2.0 Assíncrono: Uso de AsyncSession e Declarative Mapped para modelos e persistência de dados eficiente.
 
-* **Assincronicidade Completa (`async/await`):** A arquitetura utiliza o `asyncio` em todas as camadas, desde o servidor FastAPI até a comunicação com o banco de dados (SQLAlchemy 2.0+), garantindo alta performance e não-bloqueio do *event loop*.
-* **SQLAlchemy 2.0 Assíncrono:** Uso do padrão **`AsyncSession`** e *Declarative Mapped* para definição de modelos e persistência de dados eficiente.
-* **Segurança (JWT):** Implementação completa de autenticação e autorização via **JSON Web Tokens (JWT)**, gerenciada pelo `python-jose` e integrada à injeção de dependência do FastAPI.
-* **Contêinerização Profissional:** Configuração robusta com **Docker e Docker Compose** para isolamento de ambiente e simplificação do *deploy*.
-* **Testes de Integração:** Suíte completa de testes usando **Pytest** e *fixtures* assíncronas para garantir a funcionalidade de todas as rotas de CRUD e autenticação.
+Segurança (JWT): Autenticação e autorização via JSON Web Tokens, integrada à injeção de dependência do FastAPI.
 
----
+Contêinerização Profissional: Configuração robusta com Docker e Docker Compose para replicabilidade e isolamento do ambiente.
 
-## ⚙️ Tecnologias Principais
+Testes Automatizados: Suíte completa de testes unitários e de integração com Pytest e fixtures assíncronas. Garantia de funcionamento de todas as rotas CRUD e autenticação.
 
-| Categoria | Ferramenta | Propósito |
-| :--- | :--- | :--- |
-| **Framework** | FastAPI | Desenvolvimento rápido de API de alta performance e documentação automática. |
-| **BD & ORM** | PostgreSQL & SQLAlchemy (Async) | Persistência de dados assíncrona e suporte ao driver `psycopg`. |
-| **Gerenciamento de Pacotes** | `uv` (Rúst) | Instalação e gestão de dependências ultra-rápida. |
-| **Segurança** | JWT (`python-jose`) & `pwdlib` | Autenticação, tokenização e *hashing* seguro de senhas. |
-| **Contêineres** | Docker & Docker Compose | Ambiente de desenvolvimento isolado e replicável. |
-| **Migrações** | Alembic | Gerenciamento de esquema de banco de dados. |
+Cobertura de Testes: O projeto inclui análise de cobertura (coverage), demonstrando a porcentagem de código testado (última imagem).
 
----
+⚙️ Tecnologias Principais
+Categoria	Ferramenta	Propósito
+Framework	FastAPI	API de alta performance com documentação automática.
+BD & ORM	PostgreSQL & SQLAlchemy (Async)	Persistência de dados assíncrona e eficiente.
+Gerenciamento de Pacotes	uv (Rúst)	Instalação e gestão de dependências rápida.
+Segurança	JWT (python-jose) & pwdlib	Autenticação e hashing seguro de senhas.
+Contêineres	Docker & Docker Compose	Ambiente isolado e replicável.
+Migrações	Alembic	Controle de versão do esquema do banco.
+Testes	Pytest & pytest-asyncio	Execução de testes unitários e de integração.
+🚀 Como Executar o Projeto (Docker Compose)
+Pré-requisitos
 
-## 🚀 Como Executar o Projeto (Docker Compose)
+Docker e Docker Compose instalados.
 
-A maneira mais recomendada de iniciar o projeto, garantindo que o banco de dados PostgreSQL esteja pronto para as migrações, é usando o Docker Compose.
-
-### Pré-requisitos
-
-* Docker e Docker Compose instalados.
-
-### 1. Clonar e Construir
-
-```bash
+1. Clonar e Construir
 git clone https://github.com/kaynanxd/FastAPI-To-do-System
 cd FastAPI-To-do-System
 
-# Constrói a imagem da aplicação (lendo o Dockerfile)
+# Construir e subir os contêineres
 docker compose build
 docker compose up -d
-```
 
-3. Acessar a API
-   
-Servidor: A aplicação estará disponível em http://127.0.0.1:8000
-Documentação Interativa (Swagger UI): Acesse http://127.0.0.1:8000/docs
+2. Acessar a API
+
+Servidor: http://127.0.0.1:8000
+
+Swagger UI (Documentação Interativa): http://127.0.0.1:8000/docs
+
+2. Acessar a API
+
+Servidor: http://127.0.0.1:8000
+
+Swagger UI (Documentação Interativa): http://127.0.0.1:8000/docs
 ![Swagger Imagem](imagem5.png)
+
+3. Executar Testes Unitários
+# Dentro do container da aplicação ou no ambiente local
+pytest --cov=app tests/
+
+Exibe a cobertura dos testes, garantindo que o código principal foi testado adequadamente.
 ![Swagger Imagem](coverage.png)
