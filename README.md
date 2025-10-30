@@ -40,11 +40,16 @@ A maneira mais recomendada de iniciar o projeto, garantindo que o banco de dados
 ### 1. Clonar e Construir
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_PROJETO>
+git clone https://github.com/kaynanxd/FastAPI-To-do-System
+cd FastAPI-To-do-System
 
 # Constrói a imagem da aplicação (lendo o Dockerfile)
 docker compose build
-
 docker compose up -d
+```
+
+3. Acessar a API
+   
+Servidor: A aplicação estará disponível em http://127.0.0.1:8000
+Documentação Interativa (Swagger UI): Acesse http://127.0.0.1:8000/docs
 
