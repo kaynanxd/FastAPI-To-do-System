@@ -52,4 +52,5 @@ docker compose up -d
    
 Servidor: A aplicação estará disponível em http://127.0.0.1:8000
 Documentação Interativa (Swagger UI): Acesse http://127.0.0.1:8000/docs
-
+![Swagger Imagem](imagem5.png)
+![Swagger Imagem](coverage.png)
