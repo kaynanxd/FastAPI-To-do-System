@@ -1,0 +1,54 @@
+[project]
+name = "fast-api-to-do"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "alembic>=1.17.1",
+    "asyncio>=4.0.0",
+    "asyncpg>=0.30.0",
+    "factory-boy>=3.3.3",
+    "fastapi>=0.120.2",
+    "freezegun>=1.5.5",
+    "httpx>=0.28.1",
+    "jwt>=1.4.0",
+    "psycopg[binary]>=3.2.12",
+    "pwdlib[argon2]>=0.3.0",
+    "pydantic-settings>=2.11.0",
+    "pydantic[email]>=2.12.3",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-cov>=7.0.0",
+    "python-jose[cryptography]>=3.5.0",
+    "python-multipart>=0.0.20",
+    "requests>=2.32.5",
+    "ruff>=0.14.2",
+    "sqlalchemy[asyncio]>=2.0.44",
+    "taskipy>=1.14.1",
+    "tzdata>=2025.2",
+    "uvicorn>=0.38.0",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+asyncio_default_fixture_loop_scope = 'function'
+
+[tool.coverage.run]
+core = "ctrace"
+concurrency = ["thread", "greenlet"]
+
+[tool.taskipy.tasks]
+lint = 'ruff check'
+pre_format = 'ruff check --fix'
+format = 'ruff format'
+run = 'fastapi dev backend/app.py'
+pre_test = 'task lint'
+test = 'pytest -s -x --cov=backend -vv'
+post_test = 'coverage html'
